@@ -1,0 +1,50 @@
+{
+	"name": "termrover",
+	"version": "0.1.0",
+	"license": "MIT",
+	"author": {
+		"name": "Tomas Ravinskas",
+		"email": "tomas.rav@gmail.com",
+		"url": "https://tomasrav.me/"
+	},
+	"bin": "dist/cli.js",
+	"engines": {
+		"node": ">=10"
+	},
+	"private": true,
+	"scripts": {
+		"build": "tsc && chmod +x dist/cli.js",
+		"start": "npm run build && dist/cli.js",
+		"pretest": "npm run build",
+		"test": "ava"
+	},
+	"files": [
+		"dist/cli.js"
+	],
+	"dependencies": {
+		"cross-fetch": "^3.1.5",
+		"ink": "^3.2.0",
+		"meow": "^9.0.0",
+		"react": "^17.0.2"
+	},
+	"ava": {
+		"typescript": {
+			"extensions": [
+				"tsx"
+			],
+			"rewritePaths": {
+				"source/": "dist/"
+			},
+			"compile": false
+		}
+	},
+	"devDependencies": {
+		"@ava/typescript": "^3.0.1",
+		"@sindresorhus/tsconfig": "^3.0.1",
+		"@types/react": "^18.0.15",
+		"ava": "^4.3.1",
+		"chalk": "^4.1.2",
+		"ink-testing-library": "^2.1.0",
+		"typescript": "^4.7.4"
+	}
+}
